@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 const CardDescription = styled.div`
 	display: flex;
@@ -7,12 +7,13 @@ const CardDescription = styled.div`
 	flex-direction: column;
 `;
 
-export const Description = ({ species, name, gender }) => {
+export const Description = ({ species, name, gender, children }) => {
 	return (
 		<CardDescription>
 			<h2>{name}</h2>
 			<p>species:{species}</p>
 			<p>gender{gender}</p>
+			{children}
 		</CardDescription>
 	);
 };

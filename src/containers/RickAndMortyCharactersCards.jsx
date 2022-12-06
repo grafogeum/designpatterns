@@ -16,9 +16,5 @@ export const RickAndMortyCharactersCards = () => {
 		getCharacters();
 	}, []);
 
-	return (
-		<>
-			<CharacterCards characters={characters} />
-		</>
-	);
+	return <CharacterCards characters={characters} />;
 };

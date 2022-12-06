@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import css from '@emotion/styled';
+import { RickAndMortyCharactersCards } from './containers/RickAndMortyCharactersCards';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const AppStyles = css`
+	text-align: center;
+	background-color: #282c34;
+	flex-wrap: 'wrap';
+	justify-content: 'center';
+	flex-direction: column;
+	align-items: 'center';
+	width: 100;
+`;
+
+const App = () => {
+	return (
+		<div className={AppStyles}>
+			<RickAndMortyCharactersCards />
+		</div>
+	);
+};
 
 export default App;

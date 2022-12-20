@@ -1,6 +1,8 @@
 import React from 'react';
-import { RickAndMortyCharactersCards } from './containers/RickAndMortyCharactersCards';
+import { RickAndMortyCharacters } from './containers/RickAndMortyCharacters';
 import styled from '@emotion/styled';
+import CharacterCards from './components/CharacterCards';
+import { CharactersTable } from './components/CharactersTable/CharactersTable';
 
 const AppStyles = styled.div`
 	text-align: center;
@@ -15,7 +17,14 @@ const AppStyles = styled.div`
 const App = () => {
 	return (
 		<AppStyles>
-			<RickAndMortyCharactersCards />
+			<RickAndMortyCharacters>
+				{({ data, loading, error }) => (
+					<>
+						<CharactersTable characters={data} />
+						<CharacterCards characters={data} loading={loading} error={error} />
+					</>
+				)}
+			</RickAndMortyCharacters>
 		</AppStyles>
 	);
 };

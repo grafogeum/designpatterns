@@ -1,7 +1,4 @@
 import styled from '@emotion/styled';
-import { Avatar } from './Avatar';
-import { Description } from './Description/Description';
-import { DescriptionWithIcons } from './Description/DescriptionWithIcons';
 
 const CardBodyStyled = styled.div`
 	display: flex;

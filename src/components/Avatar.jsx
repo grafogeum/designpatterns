@@ -1,6 +1,7 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
-import PropTypes from "prop-types";
+import { PremiumAvatar } from '../images/premiumAvatar/PremiumAvatar';
 
 const CardAvatar = styled.div`
 	display: flex;
@@ -12,11 +13,14 @@ const CardAvatar = styled.div`
 	}
 `;
 
-export const Avatar = ({ image, name }) => (
-	<CardAvatar>
-		<img src={image} alt={`avatar-name-${name}`} />
-	</CardAvatar>
-);
+export const Avatar = ({ children, premium }) => {
+	// console.log('Avatar', [premium]);
+	return (
+		<CardAvatar>
+			<PremiumAvatar premium={premium} />
+		</CardAvatar>
+	);
+};
 
 CardAvatar.propTypes = {
 	image: PropTypes.string,

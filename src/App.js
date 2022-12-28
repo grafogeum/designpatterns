@@ -1,8 +1,8 @@
 import React from 'react';
 import { RickAndMortyCharacters } from './containers/RickAndMortyCharacters';
 import styled from '@emotion/styled';
-import CharacterCards from './components/CharacterCards';
-import { CharactersTable } from './components/CharactersTable/CharactersTable';
+import { Stepper } from './components/Stepper/Stepper';
+import { StepperProvider } from './components/Stepper/StepperProvider';
 
 const AppStyles = styled.div`
 	text-align: center;
@@ -17,14 +17,18 @@ const AppStyles = styled.div`
 const App = () => {
 	return (
 		<AppStyles>
-			<RickAndMortyCharacters>
-				{({ data, loading, error }) => (
-					<>
-						<CharactersTable characters={data} />
-						<CharacterCards characters={data} loading={loading} error={error} />
-					</>
+			<RickAndMortyCharacters
+				render={({ data }) => (
+					<StepperProvider characters={data}>
+						<Stepper>
+							<Stepper.Label />
+							<Stepper.Image />
+							<Stepper.Label type="species" />
+							<Stepper.Progress />
+						</Stepper>
+					</StepperProvider>
 				)}
-			</RickAndMortyCharacters>
+			/>
 		</AppStyles>
 	);
 };

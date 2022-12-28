@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const API_URL = 'https://rickandmortyapi.com/api/character/';
 
-export const RickAndMortyCharacters = ({ children }) => {
+export const RickAndMortyCharacters = ({ render }) => {
 	const [characters, setCharacters] = useState({
 		data: [],
 		loading: true,
@@ -32,5 +32,5 @@ export const RickAndMortyCharacters = ({ children }) => {
 	}, []);
 
 	const { data, loading, error } = characters;
-	return <>{children({ data, loading, error })}</>;
+	return <>{render({ data, loading, error })}</>;
 };

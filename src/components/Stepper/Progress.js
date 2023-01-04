@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { StepperContext } from './StepperContext';
 import MobileStepper from '@mui/material/MobileStepper';
 import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
@@ -6,13 +8,15 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core';
 
-const Progress = ({ activeStep, handleNext, handleBack, maxSteps }) => {
+const Progress = () => {
 	const theme = useTheme();
+	const { activeStep, handleNext, handleBack, maxSteps } =
+		useContext(StepperContext);
 
 	return (
 		<MobileStepper
 			variant="progress"
-			steps={maxSteps}
+			steps={maxSteps || 0}
 			position="static"
 			activeStep={activeStep}
 			sx={{ maxWidth: 400, flexGrow: 1 }}

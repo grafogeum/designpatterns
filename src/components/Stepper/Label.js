@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { StepperContext } from './StepperContext';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core';
@@ -13,11 +15,18 @@ const styles = (theme) => ({
 	}
 });
 
-const Label = ({ name, classes }) => (
-	<Paper square elevation={0} className={classes.label}>
-		<Typography variant="h6">{name || 'name'}</Typography>
-	</Paper>
-);
+const Label = (children) => {
+	const { name, species, classes } = useContext(StepperContext);
+	return (
+		<Paper square elevation={0} className={classes?.label}>
+			{children.type === 'species' ? (
+				<Typography variant="h6">{species || 'species'}</Typography>
+			) : (
+				<Typography variant="h6">{name || 'name'}</Typography>
+			)}
+		</Paper>
+	);
+};
 
 Label.propTypes = {
 	text: PropTypes.string,

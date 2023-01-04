@@ -1,4 +1,5 @@
-import React from 'react';
+import { useContext } from 'react';
+import { StepperContext } from './StepperContext';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 
@@ -12,9 +13,10 @@ const styles = {
 	}
 };
 
-const Image = ({ path, alt, classes }) => (
-	<img className={classes.img} src={path} alt={alt} />
-);
+const Image = () => {
+	const { path, alt, classes } = useContext(StepperContext);
+	return <img className={classes?.img} src={path} alt={alt} />;
+};
 
 Image.propTypes = {
 	path: PropTypes.string,

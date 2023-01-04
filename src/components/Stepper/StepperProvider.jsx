@@ -16,13 +16,23 @@ export const StepperProvider = ({ children, characters }) => {
 
 	return (
 		<StepperContext.Provider
-			value={{
-				activeStep,
-				maxSteps,
-				handleNext,
-				handleBack,
-				characters
-			}}
+			value={
+				characters.length > 1
+					? {
+							characters,
+							activeStep,
+							activeStepData: characters[activeStep],
+							maxSteps,
+							handleNext,
+							handleBack,
+							name: characters[activeStep]['name'],
+							species: characters[activeStep]['species'],
+							classes: {},
+							path: characters[activeStep]['image'],
+							alt: characters[activeStep]['name']
+					  }
+					: state
+			}
 		>
 			{children}
 		</StepperContext.Provider>
